@@ -1,13 +1,13 @@
+import sys
+input = sys.stdin.readline
+
 n = int(input())
-a = dict()
-b = []
+dic = {}
 for _ in range(n):
-    name, log = map(str, input().split())
-    a[name] = log
-    
-for i in a:
-   if a[i] == "enter": b.append(i) 
-   
-b.sort(reverse=True)
-for i in b:
-    print(i)
+    name, com = input().rstrip().split()
+    if com == 'enter':
+        dic[name] = True
+    else:
+        del dic[name]
+
+print("\n".join(sorted(dic.keys(), reverse=True)))
