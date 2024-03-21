@@ -3,11 +3,10 @@ a = dict()
 b = []
 for _ in range(n):
     name, log = map(str, input().split())
-    if log == 'enter': a[name] = 1
-    else: a[name] = 0
+    a[name] = log
     
 for i in a:
-   if a[i] == 1: b.append(i) 
+   if a[i] == "enter": b.append(i) 
    
 b.sort(reverse=True)
 for i in b:
