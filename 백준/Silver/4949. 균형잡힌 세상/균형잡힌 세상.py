@@ -11,22 +11,14 @@ while True:
         continue
     
     for j in vps:
-        if j == '(':
+        if j == '(' or j == '[':
             temp.append(j)
         elif j == ')':
-            if temp: 
-                if temp.pop() != '(':
-                    print("no"); break
-            else: print("no"); break
-        
-        if j == '[':
-            temp.append(j)
+            if not temp or (temp and temp.pop() != '('): 
+                print("no"); break
         elif j == ']':
-            if temp:
-                if temp.pop() != '[':
-                    print("no"); break
-            else: print("no"); break
-        
+            if not temp or (temp and temp.pop() != '['): 
+                print("no"); break
     else:
         if len(temp) == 0:
             print("yes")
