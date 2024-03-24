@@ -14,10 +14,10 @@ while True:
         if j == '(' or j == '[':
             temp.append(j)
         elif j == ')':
-            if not temp or (temp and temp.pop() != '('): 
+            if not temp or temp.pop() != '(': 
                 print("no"); break
         elif j == ']':
-            if not temp or (temp and temp.pop() != '['): 
+            if not temp or temp.pop() != '[': 
                 print("no"); break
     else:
         if len(temp) == 0:
