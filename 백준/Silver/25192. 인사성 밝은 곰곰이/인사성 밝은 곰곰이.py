@@ -1,12 +1,12 @@
 n = int(input())
-member = []
+member = set()
 result = 0
 for _ in range(n):
     s = input()
     if s == 'ENTER': 
-        result += len(set(member))
+        result += len(member)
         member.clear()
     else:
-        member.append(s)
-result += len(set(member))
+        member.add(s)
+result += len(member)
 print(result)
