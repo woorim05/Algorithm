@@ -1,12 +1,13 @@
-n = int(input())
+import sys
+
+n = int(sys.stdin.readline())
 member = set()
 result = 0
 for _ in range(n):
-    s = input()
+    s = sys.stdin.readline().rstrip()
     if s == 'ENTER': 
-        result += len(member)
         member.clear()
-    else:
+    elif s not in member:
         member.add(s)
-result += len(member)
+        result += 1
 print(result)
