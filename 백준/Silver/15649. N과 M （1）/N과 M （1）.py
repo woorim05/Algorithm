@@ -11,5 +11,4 @@ def dfs():
 
 n, m = map(int, input().split())
 numbers = []
-result = []
 dfs()
