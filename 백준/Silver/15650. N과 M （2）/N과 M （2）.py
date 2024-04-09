@@ -4,16 +4,10 @@ def dfs():
         return
     
     for i in range(1, n + 1):
-        if not numbers:
+        if not numbers or (numbers and i > numbers[-1]):
             numbers.append(i)
             dfs()
             numbers.pop()
-        else:
-            if i > numbers[-1]:   
-                numbers.append(i)
-                dfs()
-                numbers.pop()
-
 
 n, m = map(int, input().split())
 numbers = []
