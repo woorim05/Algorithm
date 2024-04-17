@@ -1,7 +1,7 @@
 n = int(input())
-num_count = {1:0, 2:1} # 숫자에 대한 횟수 딕셔너리
+num_count = [0] * (n + 1)
 
-for i in range(3, n + 1):
+for i in range(2, n + 1):
     num_count[i] = num_count[i - 1] + 1 # 3번 연산
     
     if i % 3 == 0: # 1번 연산과 3번 비교
