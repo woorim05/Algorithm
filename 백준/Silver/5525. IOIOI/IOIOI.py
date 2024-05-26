@@ -1,20 +1,30 @@
+from collections import deque
 import sys
 input  = sys.stdin.readline
 
 N = int(input())
-M = int(input())
-S = input().rstrip()
-form = 2*N+1
-cnt = 0
-check = ''
-for i in range(1,form+1):
-    if i % 2 !=0:
-        check+='I'
-    else:
-        check+='O'
+l = int(input())
+check = deque(input().rstrip())
+a = ''
+ans = 0
+while check and l > 1:
+    temp = a
+    cnt = 0
+    while temp != 'I' and l > 1:
+        temp = check.popleft()
+        l -= 1
+    
+    while check and l > 1:
+        a, b = check.popleft(), check.popleft()
+        l -= 2
+        if a == 'O' and b == 'I':
+            cnt += 1
+        elif a == 'I' and b == 'O':
+            check.appendleft(b)
+            l += 1
+            break
+        else:
+            break
+    ans += max(cnt - N + 1, 0)
 
-for i in range(M):
-    if S[i:i+form] == check:
-        cnt+=1
-
-print(cnt)
+print(ans)
